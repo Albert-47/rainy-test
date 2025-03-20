@@ -1,0 +1,26 @@
+.custom-upsell-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    h4 {
+        width: 100%;
+    };
+}
+
+.upsell-card {
+    background-color: #a1a0a0;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 0.8rem;
+    position: relative;
+    transition: all 0.3s;
+    max-width: 40%;
+
+    img {
+        border-radius: 5px;
+        width: 100%;
+        object-fit: cover;
+    };
+}

@@ -15,6 +15,7 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {{ 'product-upsell.css' | asset_url | stylesheet_tag }}
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
@@ -721,6 +722,20 @@
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
+    <script>
+      // Set the current product to the window so it is globally accessible
+
+      window.currentProduct = {{ product | json }}; // only use this variable in product pages
+      window.currentProduct.viewedVariant = {{ product.selected_or_first_available_variant | json }};
+
+      //We will need the currency symbol on .js
+      window.currencySymbol = "{{ cart.currency.symbol }}";
+      console.log(window.currentProduct);
+      
+    </script>
+
+  <script src="{{ 'product-upsell.js' | asset_url }}" defer></script>
+
   </div>
 </product-info>
 
